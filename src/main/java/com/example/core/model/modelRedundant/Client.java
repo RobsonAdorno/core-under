@@ -1,15 +1,16 @@
-package com.example.core.model;
+package com.example.core.model.modelRedundant;
 
-import com.example.core.security.token.Token;
-import lombok.Getter;
-import lombok.Setter;
+import com.example.core.enums.Role;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
 
+import static com.example.core.repository.IClientRepository.email;
+
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -19,16 +20,12 @@ public class Client implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne()
-    private Person person;
-
-    @OneToMany(mappedBy = "client")
-    private List<Token> tokens;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    public Client() {}
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -37,12 +34,12 @@ public class Client implements UserDetails {
 
     @Override
     public String getPassword() {
-        return person.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return person.getEmail();
+        return email;
     }
 
     @Override

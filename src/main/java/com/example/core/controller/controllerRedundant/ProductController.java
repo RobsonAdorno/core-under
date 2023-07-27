@@ -1,6 +1,6 @@
-package com.example.core.controller;
+package com.example.core.controller.controllerRedundant;
 
-import com.example.core.model.Product;
+import com.example.core.model.modelRedundant.Product;
 
 import com.example.core.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.example.core.model;
+package com.example.core.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

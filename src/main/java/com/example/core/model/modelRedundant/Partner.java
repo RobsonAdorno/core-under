@@ -1,4 +1,4 @@
-package com.example.core.model;
+package com.example.core.model.modelRedundant;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +15,9 @@ public class Partner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Embedded
-    private Person person;
+    @OneToOne()
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     @Embedded
     private Account account;

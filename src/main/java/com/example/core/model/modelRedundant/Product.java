@@ -1,4 +1,4 @@
-package com.example.core.model;
+package com.example.core.model.modelRedundant;
 
 import lombok.Getter;
 import lombok.Setter;

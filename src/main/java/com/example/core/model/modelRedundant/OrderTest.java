@@ -1,12 +1,12 @@
-package com.example.core.model;
+package com.example.core.model.modelRedundant;
 
+import com.example.core.model.modelRedundant.Client;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Getter

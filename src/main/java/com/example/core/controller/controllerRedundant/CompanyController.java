@@ -1,6 +1,6 @@
-package com.example.core.controller;
+package com.example.core.controller.controllerRedundant;
 
-import com.example.core.model.Company;
+import com.example.core.model.modelRedundant.Company;
 import com.example.core.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

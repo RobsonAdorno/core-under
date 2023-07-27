@@ -1,5 +1,7 @@
 package com.example.core.model;
 
+import com.example.core.model.modelRedundant.OrderTest;
+import com.example.core.model.modelRedundant.Product;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,12 +14,12 @@ import javax.persistence.*;
 public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(length = 11)
     private int quantity;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
@@ -25,4 +27,11 @@ public class Items {
     @JoinColumn(name = "ordertest_id", referencedColumnName = "id")
     private OrderTest orderTest;
 
+    public Items(int quantity, Product product, OrderTest orderTest) {
+        this.quantity = quantity;
+        this.product = product;
+        this.orderTest = orderTest;
+    }
+
+    public Items() {}
 }
